@@ -6,11 +6,13 @@ package com.ec.controlador;
 
 import com.ec.entidad.DetalleKardex;
 import com.ec.entidad.Kardex;
+import com.ec.entidad.Medida;
 import com.ec.entidad.Parametrizar;
 import com.ec.entidad.Producto;
 import com.ec.entidad.Variedad;
 import com.ec.servicio.ServicioDetalleKardex;
 import com.ec.servicio.ServicioKardex;
+import com.ec.servicio.ServicioMedida;
 import com.ec.servicio.ServicioParametrizar;
 import com.ec.servicio.ServicioProducto;
 import com.ec.servicio.ServicioTipoKardex;
@@ -64,7 +66,11 @@ public class NuevoProducto {
     ServicioVariedad servicioVariedad = new ServicioVariedad();
     private List<Variedad> listaVariedad = new ArrayList<Variedad>();
     private Variedad variedadSelected = null;
-
+    /*para cargar la medida*/
+    ServicioMedida servicioMedida = new ServicioMedida();
+    private List<Medida> listaMedidas = new ArrayList<Medida>();
+    private Medida medidaSelected = null;
+    
     @AfterCompose
     public void afterCompose(@ExecutionArgParam("valor") Producto producto, @ContextParam(ContextType.VIEW) Component view) {
         Selectors.wireComponents(view, this, false);
@@ -103,6 +109,7 @@ public class NuevoProducto {
             accion = "create";
         }
         listaVariedad = servicioVariedad.findBy("");
+        listaMedidas = servicioMedida.findByM("");
     }
 
     @Command
@@ -236,6 +243,7 @@ public class NuevoProducto {
                 && producto.getProdCantidadInicial() != null) {
                 
             producto.setIdVariedad(variedadSelected);
+            producto.setIdMedida(medidaSelected);
             if (conIva.equals("S")) {
                 producto.setProdGrabaIva(Boolean.TRUE);
             } else {
@@ -351,5 +359,22 @@ public class NuevoProducto {
     public void setVariedadSelected(Variedad variedadSelected) {
         this.variedadSelected = variedadSelected;
     }
+
+    public List<Medida> getListaMedidas() {
+        return listaMedidas;
+    }
+
+    public void setListaMedidas(List<Medida> listaMedidas) {
+        this.listaMedidas = listaMedidas;
+    }
+
+    public Medida getMedidaSelected() {
+        return medidaSelected;
+    }
+
+    public void setMedidaSelected(Medida medidaSelected) {
+        this.medidaSelected = medidaSelected;
+    }
+    
 
 }

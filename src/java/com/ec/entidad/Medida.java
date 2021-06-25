@@ -36,6 +36,9 @@ public class Medida implements Serializable {
     private String medCodigo;
     @Column(name = "med_principal")
     private Boolean medPrincipal;
+    @Column(name = "med_centimetros")
+    private String medCentimetros;
+    
     @OneToMany(mappedBy = "idMedida")
     private Collection<Producto> productoCollection;
 
@@ -82,5 +85,13 @@ public class Medida implements Serializable {
         this.productoCollection = productoCollection;
     }
 
+    public String getMedCentimetros() {
+        return medCentimetros;
+    }
+
+    public void setMedCentimetros(String medCentimetros) {
+        this.medCentimetros = medCentimetros;
+    }
+ 
    
 }

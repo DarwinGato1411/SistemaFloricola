@@ -31,12 +31,12 @@
                     <space bar="false"  />   
                     <radio label="CON SUBSUDIO" value="S"/>                          
                 </radiogroup>-->
-                <label  style="color:red;font-weight:bold" value=""  ></label>Variedad:
-                                        
+                <label  style="color:red;font-weight:bold" value=""  ></label>
+                Variedad:                                        
                 <combobox  model="@load(vm.listaVariedad)"  
-                                                   selectedItem="@bind(vm.variedadSelected)" 
-                                                   style="width:150px"  
-                                                   readonly="true" >
+                           selectedItem="@bind(vm.variedadSelected)" 
+                           style="width:150px"  
+                           readonly="true" >
                     <template name="model">
                         <comboitem  label="@bind(each.varNombre)"/>
                     </template>                                      
@@ -169,7 +169,18 @@
                        
             
             </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-4  form-group " align="center" ></div>
+            <div class="col-6 col-sm-6 col-md-4 col-lg-4  form-group " align="center" >
+                <label  style="color:red;font-weight:bold" value=""  ></label>
+                Medida:                                        
+                <combobox  model="@load(vm.listaMedidas)"  
+                           selectedItem="@bind(vm.medidaSelected)" 
+                           style="width:150px"  
+                           readonly="true" >
+                    <template name="model">
+                        <comboitem  label="@bind(each.medCentimetros)"/>
+                    </template>                                      
+                </combobox>
+            </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-4  form-group "  >
                 <label value="(*) " style="color:transparent;font-weight:bold"/>Precio por caja
                 <textbox    constraint="/^[0-9]{1,9}(?:[.][0-9]{1,5})?$/:Ingrese solo numeros"

@@ -108,7 +108,9 @@ public class Variedad implements Serializable {
 
     @Override
     public String toString() {
-        return "com.ec.entidades.Variedad[ idVariedad=" + idVariedad + " ]";
+        return "Variedad{" + "idVariedad=" + idVariedad + ", varNombre=" + varNombre + ", varCodigo=" + varCodigo + ", varPrincipal=" + varPrincipal + ", productoCollection=" + productoCollection + '}';
     }
+
+   
 
 }

@@ -144,7 +144,6 @@ public class Producto implements Serializable {
     @JoinColumn(name = "id_variedad", referencedColumnName = "id_variedad")
     @ManyToOne
     private Variedad idVariedad;
-
     @JoinColumn(name = "id_medida", referencedColumnName = "id_medida")
     @ManyToOne
     private Medida idMedida;
